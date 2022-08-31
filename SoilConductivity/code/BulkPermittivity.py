@@ -9,11 +9,12 @@ GRAVIMETRIC_WATER_PERCENT = 20
 
 
 PARTICLE_WEIGHT = 1
-
-DEPTH = 100000;
+DEPTH = 10000
 
 TOTAL_SOIL = DEPTH * (100-GRAVIMETRIC_WATER_PERCENT)/100
 TOTAL_WATER = DEPTH * GRAVIMETRIC_WATER_PERCENT/100
+
+PARTICLE_D = 1
 
 
 class mat_prop:   
@@ -25,7 +26,7 @@ class mat_prop:
         self.name = name
         self.iden = iden
         self.ur = ur
-        self.beta = (f*2*np.pi)/(2.98e8/np.sqrt(self.er))
+        self.beta = np.sqrt(self.er)*(f*2*np.pi)/2.98e8
 
 soil = mat_prop(3,-1,377/np.sqrt(3),"Soil",1,1)
 water = mat_prop(80,-1,377/np.sqrt(80),"Water",-1,1)
@@ -78,7 +79,7 @@ def calc_phase_sums(section):
     sum = beta_sum[0]
 
     for i in range(1,len(section)):
-        delay = section[i].beta + beta_sum[i-1]
+        delay = section[i].beta*PARTICLE_D + beta_sum[i-1]
         beta_sum.append(delay)
     
     return beta_sum
@@ -86,7 +87,7 @@ def calc_phase_sums(section):
 
 def main():
 
-    all_gamma = []
+    bulk_all = ["Er,n,mag(Gamma),angle(Gamma)"]
     for g in range(1000):
         section = generate_cs()
         gamma = calc_reflection(section)
@@ -94,14 +95,20 @@ def main():
 
         bulk_gamma = 0
         for i in range(len(gamma)):
-            bulk_gamma = bulk_gamma + gamma[i]*np.exp(-2*1j*phase_sums[i])
+            newterm = gamma[i]*np.exp(-2*1j*phase_sums[i])
+            bulk_gamma = bulk_gamma + newterm
 
-        all_gamma.append(str(np.absolute(bulk_gamma)) + "," \
-            + str(np.angle(bulk_gamma,False))+"\n")
+        mag = np.absolute(bulk_gamma)
+        angle = np.angle(bulk_gamma,False)
+        bulk_imp = -1*377*(mag+1)/(mag-1)
 
-    
+        er = (air.imp/np.absolute(bulk_imp))**2
+
+        bulk_all.append(str(er)+","+str(bulk_imp)+","+str(mag) + "," + str(angle)+"\n")
+        
+            
     with open("gamma.csv","w") as f:
-        f.writelines(all_gamma)
+        f.writelines(bulk_all)
 
 
 

@@ -2,7 +2,7 @@
 
 close all;
 clear; clc;
-python("./BulkPermittivity.py")
+%python("./BulkPermittivity.py")
 f = csvread("gamma.csv");
 
 mag = f(:,1);

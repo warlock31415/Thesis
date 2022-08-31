@@ -13,10 +13,15 @@ $$
 $$
 Then, 
 $$
-\Gamma_{bulk} = \frac{\eta_0-\eta_{bulk}}{\eta_0 + \eta_{bulk}}
+\Gamma_{bulk} = \frac{\eta_{bulk}-\eta_0}{\eta_{bulk}+\eta_0}
 
 $$
-The propagation constant can be calculated as 
+
+Thus:
+$$
+	\eta_{bulk} = -\frac{\Gamma_{bulk} + 1}{\Gamma_{bulk} - 1}\eta_0
+$$
+The propagation constant can be calculated as required can be calculated by:
 $$
 	\beta_{m} = \frac{\omega}{v_p}
 				= \frac{\omega}{\frac{c}{\sqrt{\epsilon_r}}}
@@ -29,12 +34,19 @@ $\omega$ is the frequency of the EM wave,
 $c$ is the speed of light in vacuum/air and 
 $\epsilon_r$ is the relative dielectric permittivity of the material.
 
+## Assumptions made
+- All particles are cubes
+- All particles are the same size
+- All particles are internally homogeneous
+- All particles have relative permeability of 1
 
+
+## Results
+Consistently getting gamma > 1
 > [!NOTE] 
 > - Will this work? permeability of soil?
 > - Moving the calibration plane to the end of the horn?
 > - Calculate the permeability of the soil by using it as a inductor core?
-
 
 
 
