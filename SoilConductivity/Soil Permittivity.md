@@ -42,11 +42,10 @@ $\epsilon_r$ is the relative dielectric permittivity of the material.
 
 
 ## Results
-Consistently getting gamma > 1
+Consistently getting $\Gamma > 1$ => $\epsilon_r < 1$
 > [!NOTE] 
 > - Will this work? permeability of soil?
 > - Moving the calibration plane to the end of the horn?
-> - Calculate the permeability of the soil by using it as a inductor core?
+> - Calculate the permeability of the soil by using it as an inductor core?
 
-
-
+]
