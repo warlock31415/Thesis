@@ -4,6 +4,9 @@ $$
 $$
 where $\epsilon_r$ is the relative permittivity of the sample and $\theta$ is the volumetric water content in the soil. There are other empirical models, but this seems to be the most accurate.
 
+## Soil content
+For a perfect soil with spherical particles, the packing density of 74%. The rest can be either  air or water. Concentration of water >30% will result in a saturated soil content.
+
 ## Alternate ways to calculate bulk permittivity
 
 Use multiple slab equation to calculate bulk reflection coefficient and then back calculate for $\epsilon_r$ 
