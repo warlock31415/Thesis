@@ -12,6 +12,14 @@ if WATER_CONCENTRATION > 30 :
     print("soil is saturated")
     WATER_CONCENTRATION = 30
 
+<<<<<<< HEAD
+=======
+PARTICLE_WEIGHT = 1
+DEPTH = 10000
+
+TOTAL_SOIL = DEPTH * (100-GRAVIMETRIC_WATER_PERCENT)/100
+TOTAL_WATER = DEPTH * GRAVIMETRIC_WATER_PERCENT/100
+>>>>>>> 1cb379449856a1606038c2d1e04d0095b27c754d
 
 PARTICLE_D = 1
 N_VACUUM = m.sqrt(4*np.pi*1e-7/8.8541878128e-12)
@@ -33,6 +41,7 @@ water = mat_prop(80,-1,N_VACUUM/m.sqrt(80),"Water",-1,1)
 water.beta = 459.27
 air = mat_prop(1,-1,N_VACUUM,"Air",0,1)
 
+
     
 def generate_cs():
     soil_csection = []
@@ -53,15 +62,21 @@ def generate_cs():
         mat.distance = 1
         print(mat.name)
         soil_csection.append(mat)
+<<<<<<< HEAD
+=======
+    soil_csection = [soil,soil, water, soil]
+>>>>>>> 1cb379449856a1606038c2d1e04d0095b27c754d
     return soil_csection
 
 def calc_reflection(section):
     g = [(section[0].imp-air.imp)/(section[0].imp+air.imp)]
 
     for i in range(1,len(section)):
-        g.append((section[i].imp-section[i-1].imp)/ \
-        (section[i].imp+section[i-1].imp))
+        ref = (section[i].imp-section[i-1].imp)/ \
+        (section[i].imp+section[i-1].imp)
+        g.append(ref)
     
+    print(g)
     return g
 
 def calc_phase_sums(section):
@@ -77,7 +92,11 @@ def calc_phase_sums(section):
 
 def main():
 
+<<<<<<< HEAD
     bulk_all = ["Er,n(real),n(imag),Gamma(real),Gamma(imag)\n"]
+=======
+    bulk_all = ["Er,n,mag(Gamma),angle(Gamma)\n"]
+>>>>>>> 1cb379449856a1606038c2d1e04d0095b27c754d
     for g in range(1):
         section = generate_cs()
         gamma = calc_reflection(section)
@@ -90,8 +109,14 @@ def main():
 
         mag = np.absolute(bulk_gamma)
         angle = np.angle(bulk_gamma,False)
+<<<<<<< HEAD
         bulk_imp = -1*air.imp*(bulk_gamma+1)/(bulk_gamma-1)
         er = (air.imp/np.absolute(bulk_imp))**2
+=======
+        bulk_imp = -1*377*(bulk_gamma+1)/(bulk_gamma-1)
+
+        er = (air.imp/(bulk_imp))**2
+>>>>>>> 1cb379449856a1606038c2d1e04d0095b27c754d
 
         bulk_all.append(str(er)+","+str(np.real(bulk_imp)) \
             +","+str(np.imag(bulk_imp))+","+str(np.real(bulk_gamma)) \
@@ -105,8 +130,6 @@ def main():
             
     with open("gamma.csv","w") as f:
         f.writelines(bulk_all)
-
-
 
 
 if __name__ == '__main__':

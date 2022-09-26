@@ -4,6 +4,9 @@ $$
 $$
 where $\epsilon_r$ is the relative permittivity of the sample and $\theta$ is the volumetric water content in the soil. There are other empirical models, but this seems to be the most accurate.
 
+## Soil content
+For a perfect soil with spherical particles, the packing density of 74%. The rest can be either  air or water. Concentration of water >30% will result in a saturated soil content.
+
 ## Alternate ways to calculate bulk permittivity
 
 Use multiple slab equation to calculate bulk reflection coefficient and then back calculate for $\epsilon_r$ 
@@ -48,3 +51,9 @@ Consistently getting $\Gamma > 1$ => $\epsilon_r < 1$
 > - Moving the calibration plane to the end of the horn?
 > - Calculate the permeability of the soil by using it as an inductor core?
 
+<<<<<<< HEAD
+=======
+To do simulations, we will use corn as a crop. Corn requires anywhere from 0.8 to 1.4 [inches of water](https://www.krugerseed.com/en-us/agronomy-library/corn-irrigation-timing.html) at various stages of growth. For a 1mx1mx1m cube, 0.8 inches of water translates to 0.02032m^3. And thus us $\frac{0.02032}{1}\times 100 = 2.032%$ by volume. Similarly 1.4 inches of water translates to 3.556% by volume. Accroding to Topp's equation, these concentrations will give us permittivity ranging from  3.2786 to 3.5419
+
+Will do simulations for 1.4in, 10%, 20% and 40%
+>>>>>>> 1cb379449856a1606038c2d1e04d0095b27c754d
