@@ -6,20 +6,17 @@ import random
 import sys
 
 
-WATER_CONCENTRATION = 0
+WATER_CONCENTRATION = 10
 
 if WATER_CONCENTRATION > 30 :
     print("soil is saturated")
     WATER_CONCENTRATION = 30
 
-<<<<<<< HEAD
-=======
 PARTICLE_WEIGHT = 1
+
+# Total number of mediums
 DEPTH = 10000
 
-TOTAL_SOIL = DEPTH * (100-GRAVIMETRIC_WATER_PERCENT)/100
-TOTAL_WATER = DEPTH * GRAVIMETRIC_WATER_PERCENT/100
->>>>>>> 1cb379449856a1606038c2d1e04d0095b27c754d
 
 PARTICLE_D = 1
 N_VACUUM = m.sqrt(4*np.pi*1e-7/8.8541878128e-12)
@@ -42,7 +39,11 @@ water.beta = 459.27
 air = mat_prop(1,-1,N_VACUUM,"Air",0,1)
 
 
-    
+# This function generates a 1D random array of materials. It generates a random number 
+# and if the number is less that the supplied water concentration (max 30), the material
+# is water. If it is greater than 30% the material is selected as soil and if it is 
+# anything else then the material is air. Water is chosen only when the suplied 
+# WATER_CONCENTRATION < 30
 def generate_cs():
     soil_csection = []
 
@@ -62,12 +63,11 @@ def generate_cs():
         mat.distance = 1
         print(mat.name)
         soil_csection.append(mat)
-<<<<<<< HEAD
-=======
-    soil_csection = [soil,soil, water, soil]
->>>>>>> 1cb379449856a1606038c2d1e04d0095b27c754d
     return soil_csection
 
+
+# This function iterates through the randomy generated soil cross section and calculates
+# the reflection coefficients between material boundaries
 def calc_reflection(section):
     g = [(section[0].imp-air.imp)/(section[0].imp+air.imp)]
 
@@ -79,6 +79,8 @@ def calc_reflection(section):
     print(g)
     return g
 
+# This function calculates the sum of the exponents / total phase delay due to material 
+# transitions
 def calc_phase_sums(section):
     beta_sum = [0]
     sum = beta_sum[0]
@@ -91,32 +93,25 @@ def calc_phase_sums(section):
 
 
 def main():
-
-<<<<<<< HEAD
     bulk_all = ["Er,n(real),n(imag),Gamma(real),Gamma(imag)\n"]
-=======
-    bulk_all = ["Er,n,mag(Gamma),angle(Gamma)\n"]
->>>>>>> 1cb379449856a1606038c2d1e04d0095b27c754d
+    # Change argument of the range function to do multiple itterations at once
     for g in range(1):
         section = generate_cs()
         gamma = calc_reflection(section)
         phase_sums = calc_phase_sums(section)
 
         bulk_gamma = 0
+
+        # Sum the product of reflection coefficient and e^(-2j*phase)
         for i in range(len(gamma)):
             newterm = gamma[i]*np.exp(-2*1j*phase_sums[i])
             bulk_gamma = bulk_gamma + newterm
 
         mag = np.absolute(bulk_gamma)
         angle = np.angle(bulk_gamma,False)
-<<<<<<< HEAD
-        bulk_imp = -1*air.imp*(bulk_gamma+1)/(bulk_gamma-1)
-        er = (air.imp/np.absolute(bulk_imp))**2
-=======
         bulk_imp = -1*377*(bulk_gamma+1)/(bulk_gamma-1)
 
         er = (air.imp/(bulk_imp))**2
->>>>>>> 1cb379449856a1606038c2d1e04d0095b27c754d
 
         bulk_all.append(str(er)+","+str(np.real(bulk_imp)) \
             +","+str(np.imag(bulk_imp))+","+str(np.real(bulk_gamma)) \
