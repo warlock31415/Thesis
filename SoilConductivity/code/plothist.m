@@ -6,7 +6,6 @@ clear; clc;
 f = csvread("gamma.csv");
 
 mag = f(:,1);
-angle = f(:,2);
 
-mean(mag)
+mean_mag = mean(mag)
 hist(mag,20);

@@ -48,4 +48,3 @@ Consistently getting $\Gamma > 1$ => $\epsilon_r < 1$
 > - Moving the calibration plane to the end of the horn?
 > - Calculate the permeability of the soil by using it as an inductor core?
 
-]
