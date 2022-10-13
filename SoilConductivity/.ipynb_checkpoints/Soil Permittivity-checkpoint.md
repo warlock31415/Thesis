@@ -1,6 +1,6 @@
 There have been some studies done to measure the dielectric property of soil depending on volumetric water content. In their paper [Topp](Electromagnetic determination of soil water content Measurements in coaxial transmission lines.pdf), et al. proposed an empirical model for soil permittivity dependent on moisture content. This model is given by:
 $$
-	\epsilon_r = 3.03 + 9.3\theta + 146.0\theta^2 -76.7\theta^3clea
+	\epsilon_r = 3.03 + 9.3\theta + 146.0\theta^2 -76.7\theta^3
 $$
 where $\epsilon_r$ is the relative permittivity of the sample and $\theta$ is the volumetric water content in the soil. There are other empirical models, but this seems to be the most accurate.
 
