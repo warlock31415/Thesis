@@ -1,3 +1,10 @@
 {
-  "promptDelete": false
+  "promptDelete": false,
+  "spellcheck": false,
+  "spellcheckDictionary": [
+    "microstrip",
+    "Agilent",
+    "Keysight",
+    "VNA"
+  ]
 }
