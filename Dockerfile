@@ -2,9 +2,9 @@ FROM jupyter/scipy-notebook
 
 
 USER root
-RUN apt-get update && \
-    apt-get install -y octave && \ 
-    apt-get clean
+RUN apt update && \
+    apt install -y octave liboctave-dev&& \ 
+    apt clean
 
 USER jovyan
 
