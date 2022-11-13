@@ -4,23 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "53a887f176dbaffe",
+        "id": "59bab4570157e1d2",
         "type": "tabs",
         "children": [
           {
             "id": "a0f2c80c0ab9646e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Simulations.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "8c0395f0513313a5",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -31,8 +19,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -149,13 +136,13 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "8c0395f0513313a5",
+  "active": "a0f2c80c0ab9646e",
   "lastOpenFiles": [
-    "Simulations.md",
-    "Effect of Soil Moisture Content on Antenna Properties for Precision Agriculture Applications.md",
-    "Electromagnetic.md",
+    "Correction Noes.md",
+    "Correction Notes.md",
     "SoilConductivity/Soil Permittivity.md",
     "SoilConductivity/Electromagnetic determination of soil water content Measurements in coaxial transmission lines.pdf",
+    "Electromagnetic.md",
     "Soil Conductivity/Soil Permittivity.md",
     "Soil Conductivity/Electromagnetic determination of soil water content Measurements in coaxial transmission lines.pdf"
   ]

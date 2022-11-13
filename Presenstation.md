@@ -80,6 +80,7 @@ And then at the end we will summarize our results, make conclusions, and I'll su
 # Antenna far-field
 - The far-field of an antenna is defined as the distance from the antenna at which the electric field distribution is independent of the antenna dimensions.
 - The far-feild of an antenna is given by equation (10)
+- At this point the electric and magnetic field are self-sustaining and self-propagating
 ---
 # Literature Review
 ---
@@ -90,7 +91,7 @@ And then at the end we will summarize our results, make conclusions, and I'll su
 - Another study by M. Vuran describes a similar setup and dubs it what we called earlier the internet of Underground things
 ---
 # Moisture Sensors
-- There are different kinds of moisture sensors currently on the market. 
+- There are different kinds of commercially available moisture sensors currently on the market. 
 - These use different mechanisms to sense the moisture content in the soil
 - Capacitive moisture sensor use the capacitive principle in that they monitor for a change in capacitance and correlate that to an increase in moisture
 - Dielectric moisture sensors send out a chirp and monitor the reflection coefficient and the transmission coefficient between two probes
@@ -120,6 +121,7 @@ And then at the end we will summarize our results, make conclusions, and I'll su
 - What is the effect of soil moisture content on $S_{11}$ for antennas made from  
 conventional and unconventional substrates?
 - Will the change in $S_{11}$ be the same for a control and a hydrophilic substrate?
+- We are considering a hydrophilic substrate as it represents the edge case of substrates being used. In this case we will use cement and we'll talk about it a bit latter in the presentation
 - How does the water content of the control and hydrophilic substrate affect the measurements
 ---
 # Research Objectives
@@ -135,13 +137,19 @@ conventional and unconventional substrates?
 - From the plot you can see that the increase in permittivity of the water-soil mixture increases exponentially as concentration increases
 - Specifically the "knee" of plot happens in the 20-30% range
 ---
-# Soil Structure
----
 # Antenna Dimension and Permittivity
 - When designing antennas, from the different formulas given, the electrical dimensions of the antenna are directly proportional to the wavelength
 - And we looked at how the wavelength is related to the permittivity of the material 
 - If we combine these two equations we see that the resonance frequency of the antenna is inversely proportional to the dimension of the antenna and the relative permittivity. Meaning that if we were to bury an antenna in a high permittivity environment we can decrease the size of the antenna for a give resonant frequency
 - Because the change in permittivity affects our resonance frequency, we need to consider what antenna is best for use in our experiments
+---
+# Soil Structure and Saturation
+- Why do we see an exponential increase in permittivity at concentrations approaching 20%
+- We can think of soil as having a body centered cubic structure.
+- The corners and the center are occupied by soil particles and the spaces are occupied by either water or air
+- The maximum packing density of such a structure is only 30%.
+- Thus, at water concentrations approaching 30%, the high permittivity of water dominates as it saturates the mixture
+- Because of this, only water concentrations of 0%, 5%,10%,20% were studied
 ---
 # Antenna BW
 - The bandwidth of an antenna is defined by the range of frequencies where the reflection coefficient of the antenna is less than -10dB
@@ -156,7 +164,8 @@ conventional and unconventional substrates?
 - For this study, an elliptical patch antenna was chosen.
 - The elliptical patch antenna is a modified version of a circular patch antenna 
 - It is an ultra-wideband antenna and is mostly used in GPS and satellite communications with size and weight constraints
-- Two antennas were manufactured, One with a hydrophilic substrate and one out of a commonly used RF material
+- Two antennas were designed, One with a hydrophilic substrate, in this case cement, and one out of a commonly used RF material
+- Both the antennas were desinged with the ISM band in mind
 ---
 # Cement Substrate
 - Cement was used for the hydrophilic substrate because of it affinity to absorb water 
